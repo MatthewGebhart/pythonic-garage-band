@@ -8,6 +8,12 @@ class Band:
         solos = [str(member.play_solo()) for member in self.members]
         return solos
 
+    def __str__(self):
+        return f"Our Band is called {self.name} and it is comprised {self.members}"
+
+    def __repr__(self):
+        return f"Band instance. Name = {self.name}"
+
 
 # base class
 class Musician:
@@ -18,6 +24,16 @@ class Musician:
     def get_instrument(self):
         return str(self.instrument)
 
+    def __str__(self):
+        return f"My name is {self.name} and I play {self.instrument}"
+
+    def __repr__(self):
+        return f"Musician instance. Name = {self.name}. Instrument = {self.instrument}"
+
+    def play_solo(self):
+        solo = str(self.name.play_solo())
+        return solo
+
 
 # derived class
 class Guitarist(Musician):
@@ -25,8 +41,8 @@ class Guitarist(Musician):
         self.name = name
         self.instrument = instrument
 
-    def __str__(self):
-        return f"My name is {self.name} and I play {self.instrument}"
+    # def __str__(self):
+    #     return f"My name is {self.name} and I play {self.instrument}"
 
     def __repr__(self):
         return f"Guitarist instance. Name = {self.name}"
